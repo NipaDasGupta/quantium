@@ -86,7 +86,8 @@ df['sales'] = df['price'] * df['quantity'] # multiply the values and combine it 
 # save modified csv file
 df.to_csv('combined_daily_sales_data.csv')
 </pre>
-* Commit and push your changes, then submit a link to your repo</br>
+* Commit and push your changes, then submit a link to your repo
+</br>
 <b>Task 3:</b> Create a Dash Application
 
 * Import dependecies
