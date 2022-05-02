@@ -87,3 +87,22 @@ df['sales'] = df['price'] * df['quantity'] # multiply the values and combine it 
 df.to_csv('combined_daily_sales_data.csv')
 </pre>
 * Commit and push your changes, then submit a link to your repo
+<b>Task 3:</b> Create a Dash Application
+
+* Import dependecies
+<pre>
+from dash import Dash, dcc, html
+# Using plotly.express
+import plotly.express as px
+import pandas as pd
+</pre>
+* Reading the csv file data
+<pre>
+df = pd.read_csv('D:\quantium\quantium\data\combined_data.csv')
+</pre>
+* Time Series Plot with Daily Sales Data in Date Range
+<pre>
+fig = px.line(df, x='date', y='sales', range_x=['2018-02-06','2022-02-14'], title='Dash app')
+fig.show()
+</pre>
+![newplot](https://user-images.githubusercontent.com/89456649/166251956-494f9ed7-f800-4b92-aa2d-324c132b2e91.png)
