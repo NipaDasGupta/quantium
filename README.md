@@ -47,3 +47,23 @@ git push origin main
 * Submit a link to your repo in the right module.
 </br>
 <b>Task 2:</b> Data Processing
+
+* Import packages and set the working directory
+<pre>
+import os
+import glob
+import pandas as pd
+os.chdir("D:\quantium\quantium\data") #path of the folder
+</pre>
+* Use glob to match the pattern ‘csv’
+<pre>
+extension = 'csv'
+all_filenames = [i for i in glob.glob('*.{}'.format(extension))]
+</pre>
+* Combine all files in the list and export as CSV
+<pre>
+#combine all files in the list
+combined_csv = pd.concat([pd.read_csv(f) for f in all_filenames ])
+#export to csv
+combined_csv.to_csv( "combined_daily_sales_data.csv", index=False, encoding='utf-8-sig')
+</pre>
