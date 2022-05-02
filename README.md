@@ -67,3 +67,23 @@ combined_csv = pd.concat([pd.read_csv(f) for f in all_filenames ])
 #export to csv
 combined_csv.to_csv( "combined_daily_sales_data.csv", index=False, encoding='utf-8-sig')
 </pre>
+* Remove any row which contains another type of product rather than 'pink morsel' from the product column
+<pre>
+df = pd.read_csv("D:\quantium\quantium\data\combined_daily_sales_data.csv") #file path
+df.head()
+# droping rows that contains another types of product
+df = df.drop(df.index[df['product'].isin(['chartreuse morsel', 'gold morsel', 'lapis morsel', 'magenta morsel', 'periwinkle morsel', 'vermilion morsel'])])
+df.value_counts('product') 
+# save modified csv file
+df.to_csv('combined_daily_sales_data.csv')
+</pre>
+* Combined "quality" and "price" into a single field, "sales", by multiplying them together
+<pre>
+df.info()
+df['price'] = df.price.str.replace(r'$', '')\
+                   .str.replace(',', '.').astype(float) # replace the $ symbol and convert the price into float
+df['sales'] = df['price'] * df['quantity'] # multiply the values and combine it into a single field, 'sales'
+# save modified csv file
+df.to_csv('combined_daily_sales_data.csv')
+</pre>
+* Commit and push your changes, then submit a link to your repo
