@@ -34,4 +34,15 @@ pip list
 <pre>
 pip install dash[testing]
 </pre>
-
+* Submit a link to your repo in the right module.
+</br>
+* Commit your changes and push them to GitHub. To add a large library in git, first download Git Large File Storage (LFS) using this link: https://git-lfs.github.com/
+* Then compressed the library folder in a zip folder. Go to the command prompt and run these command: 
+<pre>
+git lfs install
+git lfs track "*.zip" #format of the file or folder
+git add .gitattributes
+git add filename.zip
+git commit -m "Add Zip File"
+git push origin main
+</pre>
