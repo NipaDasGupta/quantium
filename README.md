@@ -48,7 +48,7 @@ git push origin main
 </br>
 <b>Task 2:</b> Data Processing
 
-* Import packages and set the working directory
+* First, combine multiple daily sales CSV files in one 'csv' file. To do that import packages and set the working directory
 <pre>
 import os
 import glob
