@@ -107,6 +107,65 @@ fig = px.line(df, x='date', y='sales', range_x=['2018-02-06','2022-02-14'], titl
 fig.show()
 </pre>
 ![newplot](https://user-images.githubusercontent.com/89456649/166251956-494f9ed7-f800-4b92-aa2d-324c132b2e91.png)
+<b>Task 4:</b> 
+
+* Import dependecies
+<pre>
+import plotly.express as px
+from jupyter_dash import JupyterDash
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output
+import pandas as pd
+</pre>
+* Loding the csv file data
+<pre>
+# the path to the formatted data file
+DATA_PATH = "D:\quantium\quantium\data\combined_data.csv"
+# load in data
+df = pd.read_csv(DATA_PATH)
+df = df.sort_values(by="date")
+</pre>
+* Making region-specific sales data for Pink Morsel
+<pre>
+# Build App
+app = JupyterDash(__name__)
+
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
+
+fig = px.bar(df, x="date", y="sales", color="region", barmode="group")
+
+fig.update_layout(
+    plot_bgcolor=colors['background'],
+    paper_bgcolor=colors['background'],
+    font_color=colors['text']
+)
+
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+    html.H1(
+        children='JupyterDash App',
+        style={
+            'textAlign': 'center',
+            'color': colors['text']
+        }
+    ),
+
+    html.Div(children='Dash: A web application framework for your data.', style={
+        'textAlign': 'center',
+        'color': colors['text']
+    }),
+
+    dcc.Graph(
+        id='example-graph-2',
+        figure=fig
+    )
+])
 
 
+# Run app and display result inline in the notebook
+app.run_server(mode='inline')
+</pre>
 ![newplot (1)](https://user-images.githubusercontent.com/89456649/166407616-eb1304f7-2408-4b97-9c91-272f2cdbc924.png)
