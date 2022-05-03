@@ -107,3 +107,6 @@ fig = px.line(df, x='date', y='sales', range_x=['2018-02-06','2022-02-14'], titl
 fig.show()
 </pre>
 ![newplot](https://user-images.githubusercontent.com/89456649/166251956-494f9ed7-f800-4b92-aa2d-324c132b2e91.png)
+
+
+![newplot (1)](https://user-images.githubusercontent.com/89456649/166407616-eb1304f7-2408-4b97-9c91-272f2cdbc924.png)
