@@ -1,6 +1,6 @@
-# Quantium starter repo
+# Quantium starter repo :tada:
 
-blah blah blah
+![0001](https://user-images.githubusercontent.com/89456649/166424879-98795fd0-8540-438a-8008-b5b7e7be0dbc.jpg)
 </br></br>
 <b>Task 1:</b> Set Up Your Local Development Environment
 
